@@ -9,18 +9,27 @@ namespace SSModels
 {
     public class Worker
     {
-        public Worker(List<Aisle> corridor, int salary)
+        public Worker(List<Aisle> corridors, int salary)
         {
             Salary = salary;
-            if (corridor.Count > 2)
+            if (corridors.Count > 2)
                 throw new WorkerCorridorOurOfRange();
             try
             {
-                Corridor = corridor;
+                Corridor = corridors;
             }
             catch (AisleArgumentOutOfRange ex)
             {
-
+                for (int i = 0; i < corridors.Count; i++)
+                {
+                    if (corridors[i].Shelves.Count > 2)
+                    {
+                        // When Vegetable Count Out Of Range
+                        //Corridor.Add(new(corridors[i].Shelves));
+                    }
+                    else
+                        Corridor.Add(new(corridors[i].Shelves));
+                }
             }
         }
 
@@ -29,6 +38,39 @@ namespace SSModels
         public List<Aisle> Corridor { get; set; }
 
 
+        public void Check()
+        {
+            Corridor.ForEach(a => a.Shelves.ForEach(s =>
+            s.Bunchs.ForEach(b =>
+            b.Vegetables = new
+            (
+                b.Vegetables
+                .Where(a => a.Status == VStatus.Rotten || a.Status == VStatus.Toxic)
+            )
+             )));
+        }
+
+        public void Preapera()
+        {
+            Corridor.ForEach(a => a.Shelves.ForEach(s =>
+            s.Bunchs.ForEach(delegate (BunchVegetables b)
+            {
+                BunchVegetables temp = new(b.Vegetables);
+                b.Vegetables.Clear();
+
+                // Get *New Vegetable
+                temp.Vegetables.Where(tb => tb.Status == VStatus.New)
+                    .ToList()
+                    .ForEach(v => b.Vegetables.Push(v));
+
+                // Get *Good Vegetable
+                temp.Vegetables.Where(tb => tb.Status == VStatus.Good)
+                    .ToList()
+                    .ForEach(v => b.Vegetables.Push(v));
+
+            })
+            ));
+        }
 
         public bool IsFull() => Corridor.Count == 2;
     }

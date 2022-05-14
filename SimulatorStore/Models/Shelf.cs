@@ -64,7 +64,7 @@ namespace SSModels
         }
 
 
-        public List<BunchVegetables> Bunchs { get; set; }
+        public List<BunchVegetables> Bunchs { get; set; } = new();
 
     }
 }

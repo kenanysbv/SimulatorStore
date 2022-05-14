@@ -44,7 +44,7 @@ namespace SSModels
 
 
 
-        public Stack<Vegetable> Vegetables { get; set; }
+        public Stack<Vegetable> Vegetables { get; set; } = new(); 
 
         public Vegetable VegetableType { get; set; }
 
