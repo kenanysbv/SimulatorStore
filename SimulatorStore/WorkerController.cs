@@ -1,4 +1,4 @@
-﻿using SSModels;
+﻿using SSModels.Vegetable;
 using SSGeneral;
 using SSExceptions;
 using System;
@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SSModels.Work;
 
 namespace SS
 {
@@ -17,7 +18,7 @@ namespace SS
 
 
 
-        public List<Worker> Workers { get; set; }
+        public List<Worker> Workers { get; set; } = new();
 
 
 
@@ -25,6 +26,18 @@ namespace SS
 
         public void Preapere() => Workers.ForEach(w => w.Preapera());
 
-        public void CheckForNewWorkers() { }
+        public void ControlWorker()
+        {
+            Workers.ForEach(delegate (Worker w)
+            {
+                if (w.IsEmpty())
+                    Workers.Remove(w);
+            });
+        }
+
+        public void GetNewWorker() { }
+
+        public void AddBoxes() { }
+
     }
 }

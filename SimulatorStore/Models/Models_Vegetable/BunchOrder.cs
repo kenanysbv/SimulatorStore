@@ -4,17 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SSModels
+namespace SSModels.Vegetable
 {
     public class BunchOrder
     {
-        public BunchOrder(BunchVegetables bunch, int count)
+        public BunchOrder(Bunch bunch, int count)
         {
             Bunch = bunch;
             Count = count;
         }
 
-        public BunchVegetables Bunch { get; set; }
+        public Bunch Bunch { get; set; }
 
         public int Count { get; set; }
     }

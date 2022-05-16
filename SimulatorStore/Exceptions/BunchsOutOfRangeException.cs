@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SSExceptions
 {
-    public class WorkerCorridorOurOfRange : Exception
+    public class BunchsOutOfRangeException : Exception
     {
-        public WorkerCorridorOurOfRange(string message) => Message = message;
+        public BunchsOutOfRangeException(string message) => Message = message;
 
-        public WorkerCorridorOurOfRange() { }
+        public BunchsOutOfRangeException() { }
 
 
         public string Message { get; set; }

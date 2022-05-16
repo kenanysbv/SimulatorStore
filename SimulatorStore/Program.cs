@@ -1,31 +1,38 @@
-﻿using SSModels;
+﻿using SSModels.Vegetable;
+using SS;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-Vegetable vegetable = new("Cuyud", 12);
-Vegetable vegetable1 = new("Kisnis", 12);
-Vegetable vegetable2 = new("Kever", 12, 123);
+#region Test-1
 
-BunchVegetables bunch = new(vegetable);
-BunchVegetables bunch1 = new(vegetable1);
-BunchVegetables bunch2 = new(vegetable2);
+//Vegetable vegetable = new("Cuyud", 12);
+//Vegetable vegetable1 = new("Kisnis", 12);
+//Vegetable vegetable2 = new("Kever", 12, 123);
 
-Shelf shelf = new(bunch);
-Shelf shelf1 = new(bunch1);
-Shelf shelf2 = new(bunch2);
+//BunchVegetables bunch = new(vegetable);
+//BunchVegetables bunch1 = new(vegetable1);
+//BunchVegetables bunch2 = new(vegetable2);
 
-List<Shelf> shelfList = new List<Shelf>();
-List<Shelf> shelfList2 = new List<Shelf>();
-shelfList.Add(shelf1);
-shelfList.Add(shelf2);
-shelfList2.Add(shelf);
+//Shelf shelf = new(bunch);
+//Shelf shelf1 = new(bunch1);
+//Shelf shelf2 = new(bunch2);
 
-Aisle aisle = new(shelfList);
-Aisle aisle2 = new(shelfList2);
+//List<Shelf> shelfList = new List<Shelf>();
+//List<Shelf> shelfList2 = new List<Shelf>();
+//shelfList.Add(shelf1);
+//shelfList.Add(shelf2);
+//shelfList2.Add(shelf);
 
-List<Aisle> aisleList = new List<Aisle>();
-aisleList.Add(aisle);
-aisleList.Add(aisle2);
+//Aisle aisle = new(shelfList);
+//Aisle aisle2 = new(shelfList2);
 
-File.WriteAllText("data.json", JsonConvert.SerializeObject(aisleList, Newtonsoft.Json.Formatting.Indented));
+//List<Aisle> aisleList = new List<Aisle>();
+//aisleList.Add(aisle);
+//aisleList.Add(aisle2);
+
+//File.WriteAllText("data.json", JsonConvert.SerializeObject(aisleList, Newtonsoft.Json.Formatting.Indented));
+#endregion
+
+
+
 
