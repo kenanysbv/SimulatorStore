@@ -11,16 +11,17 @@ namespace SSModels.Work
 {
     public class Worker : ICalculateListCount
     {
-        public Worker(List<Shelf> shelves, bool autoAdd = true)
+        public Worker(ref List<Shelf> shelves, bool autoAdd = true)
         {
             if (shelves.Count > (int)Capacitys.Worker && !autoAdd)
                 throw new WorkerShelvesOurOfRange();
             else if (shelves.Count > (int)Capacitys.Worker && autoAdd)
-            {
-                Shelves.AddRange(shelves.GetRange(0, FreeSpace()));
-            }
+                Shelves.AddRange(shelves.FindAll(s => s.MWorker == null).GetRange(0, FreeSpace()));
+
             Shelves = shelves;
 
+            // Init Shelves MWorker with This Obj
+            Shelves.FindAll(s => s.MWorker == null).ForEach(s => s.MWorker = this);
         }
 
         public Worker() { }

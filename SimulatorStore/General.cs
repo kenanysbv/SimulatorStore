@@ -31,7 +31,7 @@ namespace SSGeneral
         // Random max  accept -1 value
         public const int InfectedPossibility = 151;
 
-        List<VegetableType> vegetableTypes = new List<VegetableType>
+        public static List<VegetableType> vegetableTypes = new List<VegetableType>
         {
             new("tomato",0.01,VDecayDefault),
             new("potato",0.01,VDecayDefault),
@@ -58,5 +58,8 @@ namespace SSGeneral
             new("cabage",0.01,VDecayDefault),
             new("califlower",0.01,VDecayDefault)
         };
+
+        public static VegetableType GetRandomVegetableType()
+            => vegetableTypes[new Random().Next(0, vegetableTypes.Count)];
     }
 }

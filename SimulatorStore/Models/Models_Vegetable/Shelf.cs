@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 using SSExceptions;
 using SSGeneral;
 using SSInterfaces;
+using SSModels.Work;
 
 namespace SSModels.Vegetable
 {
     public class Shelf : ICalculateListCount
     {
-        public Shelf(Stack<Bunch> bunchs, bool autoAdd = true)
+        public Shelf(List<Bunch> bunchs, bool autoAdd = true)
         {
             // Check bunchs number
             if (bunchs.Count > (int)Capacitys.Shelf && !autoAdd)
@@ -19,17 +20,31 @@ namespace SSModels.Vegetable
             else if (bunchs.Count > (int)Capacitys.Shelf && autoAdd)
             {
                 for (int i = 0; i < FreeSpace(); i++)
-                    Bunches.Push(bunchs.Pop());
+                    Bunches.Add(bunchs.());
             }
             else
                 Bunches = bunchs;
         }
+        public Shelf(ref Box box, bool autoAdd = true)
+        {
+            // Check bunchs number
+            if (box.Bunches.Count > (int)Capacitys.Shelf && !autoAdd)
+                throw new BunchsOutOfRangeException($"{box.Bunches.Count}");
+            else if (box.Bunches.Count > (int)Capacitys.Shelf && autoAdd)
+                for (int i = 0; i < FreeSpace(); i++)
+                    Bunches.Add(box.Bunches.Pop());
+            else
+                Bunches = box.Bunches.ToList();
+        }
+
 
         public Shelf() { }
 
 
-        public Stack<Bunch> Bunches { get; set; } = new();
 
+        public List<Bunch> Bunches { get; set; } = new();
+
+        public Worker? MWorker { get; set; } = null;
 
 
 
@@ -50,6 +65,19 @@ namespace SSModels.Vegetable
             else if (autoAdd)
                 for (int i = 0; i < FreeSpace(); i++)
                     Bunches.Push(bunches.Pop());
+            else
+                return false;
+            return true;
+        }
+
+        public bool Add(ref Box box, bool autoAdd = true)
+        {
+            if (box.Bunches.Count <= FreeSpace())
+                for (int i = 0; i < box.Bunches.Count; i++)
+                    Bunches.Push(box.Bunches.Pop());
+            else if (autoAdd)
+                for (int i = 0; i < FreeSpace(); i++)
+                    Bunches.Push(box.Bunches.Pop());
             else
                 return false;
             return true;

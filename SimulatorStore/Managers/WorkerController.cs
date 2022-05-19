@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SSModels.Work;
 
-namespace SS
+namespace SSManagers
 {
     public class WorkerController
     {
@@ -26,7 +26,7 @@ namespace SS
 
         public void Preapere() => Workers.ForEach(w => w.Preapera());
 
-        public void ControlWorker()
+        public void ClearWorker()
         {
             Workers.ForEach(delegate (Worker w)
             {
@@ -35,9 +35,12 @@ namespace SS
             });
         }
 
-        public void GetNewWorker() { }
-
-        public void AddBoxes() { }
-
+        public void GetNewWorker(ref List<Shelf> Shelves)
+        {
+            int countOfFree = Shelves.FindAll(s => s.MWorker == null).Count;
+            if (countOfFree > 0)
+                while (Shelves.FindAll(s => s.MWorker == null).Count > 0)
+                    Workers.Add(new(ref Shelves));
+        }
     }
 }
