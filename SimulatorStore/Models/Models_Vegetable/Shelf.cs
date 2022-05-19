@@ -12,7 +12,7 @@ namespace SSModels.Vegetable
 {
     public class Shelf : ICalculateListCount
     {
-        public Shelf(List<Bunch> bunchs, bool autoAdd = true)
+        public Shelf(Stack<Bunch> bunchs, bool autoAdd = true)
         {
             // Check bunchs number
             if (bunchs.Count > (int)Capacitys.Shelf && !autoAdd)
@@ -20,7 +20,7 @@ namespace SSModels.Vegetable
             else if (bunchs.Count > (int)Capacitys.Shelf && autoAdd)
             {
                 for (int i = 0; i < FreeSpace(); i++)
-                    Bunches.Add(bunchs.());
+                    Bunches.Push(bunchs.Pop());
             }
             else
                 Bunches = bunchs;
@@ -32,9 +32,9 @@ namespace SSModels.Vegetable
                 throw new BunchsOutOfRangeException($"{box.Bunches.Count}");
             else if (box.Bunches.Count > (int)Capacitys.Shelf && autoAdd)
                 for (int i = 0; i < FreeSpace(); i++)
-                    Bunches.Add(box.Bunches.Pop());
+                    Bunches.Push(box.Bunches.Pop());
             else
-                Bunches = box.Bunches.ToList();
+                Bunches = box.Bunches;
         }
 
 
@@ -42,7 +42,7 @@ namespace SSModels.Vegetable
 
 
 
-        public List<Bunch> Bunches { get; set; } = new();
+        public Stack<Bunch> Bunches { get; set; } = new();
 
         public Worker? MWorker { get; set; } = null;
 

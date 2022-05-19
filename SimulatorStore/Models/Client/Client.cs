@@ -26,7 +26,7 @@ namespace SSModels.Client
 
         public void Buy(List<Shelf> Shelves)
         {
-            Shelves.ForEach(sh => sh.Bunches.
+            //Shelves.ForEach(sh => sh.Bunches.
         }
     }
 }
