@@ -26,7 +26,13 @@ namespace SSModels.Client
 
         public void Buy(List<Shelf> Shelves)
         {
-            //Shelves.ForEach(sh => sh.Bunches.
+            foreach (var order in BunchOrders)
+            {
+                foreach (var shekf in Shelves)
+                {
+                    if (shekf.Bunches)
+                }
+            }
         }
     }
 }

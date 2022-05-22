@@ -1,0 +1,17 @@
+C:\Users\user\source\repos\SimulatorStore\SimulatorStore\bin\Debug\net6.0\SimulatorStore.exe
+C:\Users\user\source\repos\SimulatorStore\SimulatorStore\bin\Debug\net6.0\SimulatorStore.deps.json
+C:\Users\user\source\repos\SimulatorStore\SimulatorStore\bin\Debug\net6.0\SimulatorStore.runtimeconfig.json
+C:\Users\user\source\repos\SimulatorStore\SimulatorStore\bin\Debug\net6.0\SimulatorStore.dll
+C:\Users\user\source\repos\SimulatorStore\SimulatorStore\bin\Debug\net6.0\SimulatorStore.pdb
+C:\Users\user\source\repos\SimulatorStore\SimulatorStore\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\user\source\repos\SimulatorStore\SimulatorStore\obj\Debug\net6.0\SimulatorStore.csproj.AssemblyReference.cache
+C:\Users\user\source\repos\SimulatorStore\SimulatorStore\obj\Debug\net6.0\SimulatorStore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\source\repos\SimulatorStore\SimulatorStore\obj\Debug\net6.0\SimulatorStore.AssemblyInfoInputs.cache
+C:\Users\user\source\repos\SimulatorStore\SimulatorStore\obj\Debug\net6.0\SimulatorStore.AssemblyInfo.cs
+C:\Users\user\source\repos\SimulatorStore\SimulatorStore\obj\Debug\net6.0\SimulatorStore.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\SimulatorStore\SimulatorStore\obj\Debug\net6.0\SimulatorStore.csproj.CopyComplete
+C:\Users\user\source\repos\SimulatorStore\SimulatorStore\obj\Debug\net6.0\SimulatorStore.dll
+C:\Users\user\source\repos\SimulatorStore\SimulatorStore\obj\Debug\net6.0\refint\SimulatorStore.dll
+C:\Users\user\source\repos\SimulatorStore\SimulatorStore\obj\Debug\net6.0\SimulatorStore.pdb
+C:\Users\user\source\repos\SimulatorStore\SimulatorStore\obj\Debug\net6.0\SimulatorStore.genruntimeconfig.cache
+C:\Users\user\source\repos\SimulatorStore\SimulatorStore\obj\Debug\net6.0\ref\SimulatorStore.dll

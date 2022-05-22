@@ -22,21 +22,28 @@ namespace SSManagers
 
         public void AddBoxes(Box box)
         {
-            Shelves.ForEach(s => s.Add(ref box));
-            if (box.Bunches.Count > 0)
-                while (box.Bunches.Count > 0)
-                    Shelves.Add(new(ref box));
+            foreach (Shelf shelf in Shelves)
+            {
+                if (!shelf.Add(ref box))
+                    break;
+            }
+
+            // New Shelf
+            Shelves.Add(new(ref box));
         }
 
-        public void AddBoxes(ref List<Box> boxes)
-        {
-            boxes.ForEach(delegate (Box box)
-           {
-               Shelves.ForEach(s => s.Add(ref box));
-               if (box.Bunches.Count > 0)
-                   while (box.Bunches.Count > 0)
-                       Shelves.Add(new(ref box));
-           });
-        }
+        //public void AddBoxes(ref List<Box> boxes)
+        //{
+        //    boxes.ForEach(delegate (Box box)
+        //   {
+        //       Shelves.ForEach(s => s.Add(ref box));
+        //       if (box.Bunches.Count > 0)
+        //           while (box.Bunches.Count > 0)
+        //               Shelves.Add(new(ref box));
+        //   });
+
+        //    if (boxes.Count > 0)
+        //        Shelves.Add(new(ref  boxes));
+        //}
     }
 }
